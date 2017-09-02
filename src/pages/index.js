@@ -1,6 +1,22 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import styled from 'styled-components'
+
+const PostTitle = styled.h2`
+  margin-bottom: .4em;
+  a {
+    color: rebeccapurple;
+    text-decoration: none;
+  }
+  a:hover {
+    opacity: .85;
+  }
+`
+
+const PostDate = styled.h5`
+  margin-bottom: 1em;
+`
 
 export default function Index({ data }) {
   const { edges: posts } = data.allMarkdownRemark;
@@ -9,10 +25,10 @@ export default function Index({ data }) {
       {posts.filter(post => post.node.frontmatter.title.length > 0).map(({ node: post }) => {
           return (
             <div className="blog-post-preview" key={post.id}>
-              <h1>
+              <PostTitle>
                 <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-              </h1>
-              <h5>{post.frontmatter.date}</h5>
+              </PostTitle>
+              <PostDate>{post.frontmatter.date}</PostDate>
               <p>{post.excerpt}</p>
             </div>
           );
