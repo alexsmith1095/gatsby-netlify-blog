@@ -1,6 +1,6 @@
 ---
 layout: blog
-path: second-post
+path: /second-post
 date: 2017-09-02T20:49:48.048Z
 title: My Second Blog Post
 ---
